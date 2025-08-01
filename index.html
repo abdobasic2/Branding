@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض تقديمي احترافي: بناء العلامة التجارية بمنهجية مارتي نيومير</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            overflow: hidden;
+        }
+        .slide {
+            transition: opacity 0.7s ease-in-out;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        .slide-content {
+            max-width: 950px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .progress-bar-fill {
+            transition: width 0.4s ease-out;
+        }
+        .chapter-title {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #9ca3af; /* text-gray-400 */
+            background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800 with opacity */
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+        /* Loading spinner for Gemini API */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- حاوية الشرائح الرئيسية -->
+    <div id="slider-container" class="relative w-screen h-screen">
+
+        <!-- الفصل الأول: السؤال -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0">
+            <div class="chapter-title">الفصل الأول: السؤال</div>
+            <div class="slide-content text-center">
+                <h1 class="text-6xl md:text-8xl font-black mb-4 text-cyan-400">ما هو البراندينج؟</h1>
+                <p class="text-xl md:text-3xl text-gray-300">سؤال بسيط، لكن إجابته هي حجر الزاوية لكل استراتيجية عمل ناجحة.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الأول: السؤال</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">لنبدأ بما هو ليس براندينج...</h2>
+                <div class="grid md:grid-cols-3 gap-6 text-xl">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-red-500/50">
+                        <h3 class="font-bold text-2xl mb-2 text-red-400">ليس شعاراً</h3>
+                        <p>الشعار مجرد رمز، أداة مفيدة للتعرف على البراند، لكنه ليس البراند نفسه.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-red-500/50">
+                        <h3 class="font-bold text-2xl mb-2 text-red-400">ليس منتجاً</h3>
+                        <p>المنتج هو ما تبيعه. البراند هو السبب الذي يجعل الناس يختارون منتجك أنت.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-red-500/50">
+                        <h3 class="font-bold text-2xl mb-2 text-red-400">ليس وعداً</h3>
+                        <p>الوعد جزء من الرسالة، لكن البراند أعمق من ذلك. إنه ما يشعر به الناس تجاهك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفصل الثاني: الإجابة الصحيحة -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثاني: الإجابة</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">البراند هو شعور العميل الغريزي.</h2>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">"A brand is a person's gut feeling about a product, service, or organization." - Marty Neumeier</p>
+                <p class="text-2xl md:text-3xl font-bold bg-gray-800 p-6 rounded-lg">إنه ليس ما تقوله أنت، بل ما يقولونه هم عنك عندما لا تكون في الغرفة.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثاني: الإجابة</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">البراند هو سمعتك التجارية</h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">كل شخص يمتلك نسخة مختلفة قليلاً من البراند في عقله. التحدي هو توجيه هذه التصورات.</p>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <p class="text-3xl font-bold text-cyan-400">الثقة = الموثوقية + البهجة</p>
+                    <p class="text-xl mt-4">الموثوقية تلبي التوقعات، والبهجة تتجاوزها لتخلق السحر.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفصل الثالث: فجوة العلامة التجارية -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">المشكلة الكبرى: The Brand Gap</h2>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">الهوة بين التفكير الاستراتيجي والتنفيذ الإبداعي.</p>
+                <div class="flex flex-col md:flex-row justify-around items-center text-2xl">
+                    <div class="text-center mb-4 md:mb-0">
+                        <p class="font-bold text-3xl">الاستراتيجية</p>
+                        <p class="text-xl text-gray-400">(المنطق والتحليل)</p>
+                    </div>
+                    <span class="text-6xl font-black text-red-500 mx-4">≠</span>
+                    <div class="text-center">
+                        <p class="font-bold text-3xl">الإبداع</p>
+                        <p class="text-xl text-gray-400">(الحدس والسحر)</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-2xl text-cyan-400 font-bold">الحل: بناء جسر بينهما عبر التخصصات الخمسة.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2">1. التميز (Differentiate)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">كن مختلفاً، لا أفضل فقط.</h2>
+                <p class="text-xl text-gray-300">في عالم مزدحم، يركز العقل على ما هو غير متوقع. لتتميز، أجب بوضوح:</p>
+                <p class="text-3xl font-bold bg-gray-800 p-6 rounded-lg mt-6">من أنت؟ ماذا تفعل؟ ولماذا يهم ذلك؟</p>
+            </div>
+        </div>
+        
+        <!-- الشرائح الجديدة المضافة -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2">2. التعاون (Collaborate)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">بناء البراند عمل جماعي.</h2>
+                <p class="text-xl text-gray-300">"يتطلب بناء البراند قرية بأكملها."</p>
+                <p class="text-2xl font-bold bg-gray-800 p-6 rounded-lg mt-6">يجب أن يعمل فريق الاستراتيجية مع فريق الإبداع كفريق واحد لتحقيق نتيجة أقوى من مجموع أجزائهما.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2">3. الابتكار (Innovate)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">قُد السوق، لا تقلّده.</h2>
+                <p class="text-xl text-gray-300">الابتكار هو ما يشعل الشغف والولاء. اتبع مبدأ "MAYA":</p>
+                <p class="text-2xl font-bold bg-gray-800 p-6 rounded-lg mt-6">"الأكثر تقدماً ولكن لا يزال مقبولاً" (Most Advanced Yet Acceptable)</p>
+                <p class="mt-4 text-lg text-gray-400">كن مثيراً بما يكفي، ومألوفاً بما يكفي.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2">4. التحقق (Validate)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">استمع لجمهورك باستمرار.</h2>
+                <p class="text-xl text-gray-300">انتقل من البث أحادي الاتجاه إلى حلقة التغذية الراجعة (Feedback Loop).</p>
+                <p class="text-2xl font-bold bg-gray-800 p-6 rounded-lg mt-6">اختبر تصميماتك وأفكارك مع أناس حقيقيين قبل إطلاقها في السوق.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
+            <div class="slide-content text-center">
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2">5. الرعاية (Cultivate)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">البراند كائن حي يحتاج للرعاية.</h2>
+                <p class="text-xl text-gray-300">التحكم الصارم يقتل البراند. الرعاية المستمرة تبقيه حياً وذا صلة.</p>
+                <p class="text-2xl font-bold bg-gray-800 p-6 rounded-lg mt-6">الهدف هو "المحاذاة" (Alignment) وليس "الاتساق" (Consistency) الصارم.</p>
+            </div>
+        </div>
+        <!-- نهاية الشرائح الجديدة -->
+        
+        <!-- الفصل الرابع: قاعدة ZAG -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الرابع: قاعدة ZAG</div>
+            <div class="slide-content text-center">
+                <h2 class="text-7xl md:text-9xl font-black mb-4 text-cyan-400">ZAG</h2>
+                <p class="text-3xl md:text-4xl font-bold">"When everybody zigs, ZAG."</p>
+                <p class="mt-6 text-xl text-gray-300">المنافسة الحقيقية ليست ضد الشركات، بل ضد الفوضى والضوضاء.</p>
+                <p class="mt-4 text-2xl bg-gray-800 p-4 rounded-lg">الهدف: أن تكون "الوحيد" الذي يفعل ما تفعله.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الرابع: قاعدة ZAG</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">اختبار الـ ZAG: بيان التفرد</h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-4">هل يمكنك إكمال هذه الجملة بصدق؟</p>
+                <div class="bg-gray-800 p-6 rounded-lg text-2xl font-mono border border-cyan-500/50">
+                    <p>علامتنا التجارية هي <span class="text-cyan-400">[الفئة]</span> <span class="text-red-400 font-bold">الوحيدة</span> التي <span class="text-cyan-400">[تقدم هذا التميز الجذري]</span>.</p>
+                </div>
+                <p class="mt-6 text-lg text-gray-400">إذا لم تستطع، فليس لديك ZAG بعد.</p>
+            </div>
+        </div>
+
+        <!-- الفصل الخامس: The Brand Flip -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الخامس: The Brand Flip</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">الانقلاب الكبير في ميزان القوى</h2>
+                <div class="grid md:grid-cols-2 gap-6 text-xl">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="font-bold text-2xl mb-2 text-red-400 line-through">النموذج القديم</h3>
+                        <p>الشركة تبني البراند ← البراند يجذب العملاء.</p>
+                    </div>
+                    <div class="bg-cyan-900 p-6 rounded-lg border border-cyan-500">
+                        <h3 class="font-bold text-2xl mb-2 text-cyan-400">النموذج الجديد</h3>
+                        <p>الشركة تبني العملاء ← العملاء يبنون البراند.</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-2xl font-bold">الشركة التي تمتلك أفضل العملاء هي التي تفوز.</p>
+            </div>
+        </div>
+        
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل الخامس: The Brand Flip</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">من "الشرائح" إلى "القبائل"</h2>
+                <p class="text-xl md:text-2xl mb-4 text-gray-300">الناس لا "يشترون" البراندات، بل "ينضمون" إليها.</p>
+                <p class="text-3xl font-bold bg-gray-800 p-6 rounded-lg mt-4">السؤال الجديد للعميل: "من أكون عندما أستخدم هذا المنتج؟"</p>
+                <p class="mt-6 text-xl text-gray-400">دورك هو "تحسين العميل"، وليس فقط "تحسين المنتج".</p>
+            </div>
+        </div>
+
+        <!-- الفصل السادس: سلم الولاء -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل السادس: سلم الولاء</div>
+            <div class="slide-content text-center w-full">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">The Brand Ladder: قياس ما يهم حقاً</h2>
+                <div class="space-y-4 w-full max-w-xl mx-auto text-right">
+                    <div class="bg-cyan-600 p-4 rounded-lg"><strong class="font-black text-2xl">4. التمكين:</strong> "البراند جزء من هويتي وقصة نجاحي."</div>
+                    <div class="bg-cyan-700 p-4 rounded-lg"><strong class="font-black text-2xl">3. المشاركة:</strong> "أنا أنتمي لهذه القبيلة وأشارك فيها بنشاط."</div>
+                    <div class="bg-cyan-800 p-4 rounded-lg"><strong class="font-black text-2xl">2. البهجة:</strong> "التجربة فاقت توقعاتي، سأتحدث عنها للجميع."</div>
+                    <div class="bg-gray-700 p-4 rounded-lg"><strong class="font-black text-2xl">1. الرضا:</strong> "المنتج جيد وقام بالمطلوب."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفصل السابع: ورشة العمل -->
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل السابع: ورشة العمل</div>
+            <div class="slide-content text-center">
+                <p class="text-2xl text-cyan-400">الفصل الأخير</p>
+                <h2 class="text-4xl md:text-6xl font-black mt-2">بناء الهوية التجارية: خطوة بخطوة</h2>
+                <p class="text-xl md:text-2xl mt-4 text-gray-300">نموذج عملي تطبيقي لتحويل النظرية إلى واقع.</p>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل السابع: ورشة العمل</div>
+            <div class="slide-content text-center">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">الخطوة 1: الجوهر (The Core)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">حدد بوصلتك الاستراتيجية</h2>
+                <div class="grid md:grid-cols-3 gap-4 text-left rtl:text-right">
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h4 class="font-bold text-xl mb-2">الغرض</h4>
+                        <p>لماذا شركتك موجودة؟ (بعيداً عن الربح)</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h4 class="font-bold text-xl mb-2">الرؤية</h4>
+                        <p>ما هو المستقبل الذي تسعى لتحقيقه؟</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h4 class="font-bold text-xl mb-2">القيم</h4>
+                        <p>ما هي المبادئ التي تحكم تصرفاتك؟</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل السابع: ورشة العمل</div>
+            <div class="slide-content text-center">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">الخطوة 2: الشخصية والصوت (The Voice)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">تحديد شخصية البراند بمساعدة الذكاء الاصطناعي</h2>
+                <div class="bg-gray-800 p-6 rounded-lg w-full">
+                    <label for="businessDesc" class="block mb-2 text-lg font-bold">صف مشروعك أو فكرتك باختصار:</label>
+                    <textarea id="businessDesc" rows="3" class="w-full bg-gray-700 text-white p-2 rounded-md border border-gray-600 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="مثال: متجر إلكتروني يبيع قهوة مختصة ومستدامة للشباب المحب للفن والموسيقى."></textarea>
+                    <button id="geminiBtn" class="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300">
+                        اقترح شخصية البراند
+                    </button>
+                    <div id="geminiResult" class="mt-4 text-left rtl:text-right">
+                        <!-- Gemini results will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الفصل السابع: ورشة العمل</div>
+            <div class="slide-content text-center">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">الخطوة 3: المظهر (The Look)</h3>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">ترجمة الاستراتيجية إلى هوية بصرية</h2>
+                <p class="text-xl text-gray-300 mb-6">يجب أن تعمل كل العناصر البصرية معاً لتروي نفس القصة التي حددتها.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-gray-800 p-3 rounded-lg"><strong>شعار</strong><p class="text-sm text-gray-400">رمز فريد</p></div>
+                    <div class="bg-gray-800 p-3 rounded-lg"><strong>ألوان</strong><p class="text-sm text-gray-400">تعكس الشخصية</p></div>
+                    <div class="bg-gray-800 p-3 rounded-lg"><strong>خطوط</strong><p class="text-sm text-gray-400">تدعم نبرة الصوت</p></div>
+                    <div class="bg-gray-800 p-3 rounded-lg"><strong>صور وأيقونات</strong><p class="text-sm text-gray-400">أسلوب موحد</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
+            <div class="chapter-title">الخاتمة</div>
+            <div class="slide-content text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">البراند هو بوصلة الشركة</h2>
+                <p class="text-xl md:text-2xl text-gray-300">عندما تكون الهوية واضحة، يصبح اتخاذ القرارات أسهل في كل أقسام الشركة.</p>
+                <p class="text-2xl md:text-3xl font-bold bg-cyan-600 p-4 rounded-lg mt-6">البراند القوي ليس مجرد أصل تسويقي، بل هو ثقافة الشركة ومستقبلها.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- أزرار التنقل -->
+    <div class="absolute bottom-5 right-5 flex space-x-3 rtl:space-x-reverse z-10">
+        <button id="nextBtn" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold w-14 h-14 rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+    </div>
+    <div class="absolute bottom-5 left-5 z-10">
+        <button id="prevBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold w-14 h-14 rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+    </div>
+
+    <!-- شريط التقدم -->
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-gray-700 z-10">
+        <div id="progressBar" class="h-full bg-cyan-400 progress-bar-fill" style="width: 0%;"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const progressBar = document.getElementById('progressBar');
+            const geminiBtn = document.getElementById('geminiBtn');
+            const businessDescInput = document.getElementById('businessDesc');
+            const geminiResultDiv = document.getElementById('geminiResult');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateProgressBar() {
+                const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            }
+
+            function showSlide(index) {
+                if (index === currentSlide) return;
+
+                const oldSlide = slides[currentSlide];
+                const newSlide = slides[index];
+
+                oldSlide.style.opacity = '0';
+                
+                setTimeout(() => {
+                    oldSlide.style.display = 'none';
+                    newSlide.style.display = 'flex';
+                    void newSlide.offsetWidth; 
+                    newSlide.style.opacity = '1';
+                }, 700); 
+
+                currentSlide = index;
+                updateProgressBar();
+            }
+
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % totalSlides;
+                showSlide(nextIndex);
+            }
+
+            function prevSlide() {
+                let prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex);
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    prevSlide();
+                }
+            });
+
+            // --- Gemini API Integration ---
+            async function callGemini() {
+                const businessDesc = businessDescInput.value;
+                if (!businessDesc.trim()) {
+                    geminiResultDiv.innerHTML = `<p class="text-red-400">الرجاء إدخال وصف لمشروعك أولاً.</p>`;
+                    return;
+                }
+
+                geminiResultDiv.innerHTML = '<div class="loader"></div>';
+                geminiBtn.disabled = true;
+                geminiBtn.innerText = 'جاري التحليل...';
+
+                const prompt = `بناءً على وصف العمل التالي، اقترح 5 صفات لشخصية العلامة التجارية وفقرة قصيرة تصف نبرة صوتها. يجب أن تكون الإجابة باللغة العربية ومنسقة بشكل جيد للعرض. وصف العمل هو: "${businessDesc}"`;
+                
+                const apiKey = ""; // API Key will be injected by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        // Simple markdown-to-HTML conversion
+                        let htmlResult = text
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')       // Italic
+                            .replace(/(\n)/g, '<br>');
+                        geminiResultDiv.innerHTML = `<div class="bg-gray-700 p-4 rounded-md">${htmlResult}</div>`;
+                    } else {
+                        throw new Error("لم يتم العثور على محتوى في استجابة الـ API.");
+                    }
+
+                } catch (error) {
+                    console.error("Gemini API call failed:", error);
+                    geminiResultDiv.innerHTML = `<p class="text-red-400">حدث خطأ أثناء الاتصال بالذكاء الاصطناعي. الرجاء المحاولة مرة أخرى.</p>`;
+                } finally {
+                    geminiBtn.disabled = false;
+                    geminiBtn.innerText = 'اقترح شخصية البراند';
+                }
+            }
+
+            geminiBtn.addEventListener('click', callGemini);
+            // --- End of Gemini API Integration ---
+
+            // Initial setup
+            slides.forEach((slide, index) => {
+                if (index !== 0) {
+                    slide.style.display = 'none';
+                    slide.style.opacity = '0';
+                }
+            });
+            slides[0].style.display = 'flex';
+            slides[0].style.opacity = '1';
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>
