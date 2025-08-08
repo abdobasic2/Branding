@@ -39,20 +39,6 @@
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
         }
-        /* Loading spinner for Gemini API */
-        .loader {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -143,7 +129,6 @@
             </div>
         </div>
         
-        <!-- الشرائح الجديدة المضافة -->
         <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
             <div class="chapter-title">الفصل الثالث: فجوة العلامة التجارية</div>
             <div class="slide-content text-center">
@@ -184,7 +169,6 @@
                 <p class="text-2xl font-bold bg-gray-800 p-6 rounded-lg mt-6">الهدف هو "المحاذاة" (Alignment) وليس "الاتساق" (Consistency) الصارم.</p>
             </div>
         </div>
-        <!-- نهاية الشرائح الجديدة -->
         
         <!-- الفصل الرابع: قاعدة ZAG -->
         <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
@@ -284,20 +268,23 @@
             </div>
         </div>
 
+        <!-- الشريحة المعدلة -->
         <div class="slide w-full h-full flex items-center justify-center p-8 absolute top-0 left-0 opacity-0" style="display: none;">
             <div class="chapter-title">الفصل السابع: ورشة العمل</div>
             <div class="slide-content text-center">
                 <h3 class="text-2xl font-bold text-cyan-400 mb-2">الخطوة 2: الشخصية والصوت (The Voice)</h3>
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">تحديد شخصية البراند بمساعدة الذكاء الاصطناعي</h2>
-                <div class="bg-gray-800 p-6 rounded-lg w-full">
-                    <label for="businessDesc" class="block mb-2 text-lg font-bold">صف مشروعك أو فكرتك باختصار:</label>
-                    <textarea id="businessDesc" rows="3" class="w-full bg-gray-700 text-white p-2 rounded-md border border-gray-600 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="مثال: متجر إلكتروني يبيع قهوة مختصة ومستدامة للشباب المحب للفن والموسيقى."></textarea>
-                    <button id="geminiBtn" class="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300">
-                        اقترح شخصية البراند
-                    </button>
-                    <div id="geminiResult" class="mt-4 text-left rtl:text-right">
-                        <!-- Gemini results will be injected here -->
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">تحديد شخصية البراند: مثال عملي</h2>
+                <div class="bg-gray-800 p-6 rounded-lg w-full text-right">
+                    <p class="text-lg mb-4"><strong class="text-cyan-400">المشروع:</strong> أكاديمية تقدم دبلومات وماجستير مهني لتطوير الكوادر في السوق السعودي.</p>
+                    <h4 class="font-bold text-xl mb-3">مقترح شخصية البراند:</h4>
+                    <div class="flex justify-center gap-4 flex-wrap mb-6">
+                        <span class="bg-gray-700 px-4 py-2 rounded-full text-lg">طموح</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full text-lg">خبير</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full text-lg">موثوق</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full text-lg">مُمَكِّن</span>
                     </div>
+                    <h4 class="font-bold text-xl mb-2">مقترح نبرة الصوت:</h4>
+                    <p class="text-gray-300">واثقة، واضحة، ومحفزة. تتحدث لغة المستقبل والإنجاز، وتخاطب المهنيين بجدية واحترام، مع التركيز على النتائج العملية والعائد على الاستثمار التعليمي في مسيرتهم المهنية.</p>
                 </div>
             </div>
         </div>
@@ -351,9 +338,6 @@
             const nextBtn = document.getElementById('nextBtn');
             const prevBtn = document.getElementById('prevBtn');
             const progressBar = document.getElementById('progressBar');
-            const geminiBtn = document.getElementById('geminiBtn');
-            const businessDescInput = document.getElementById('businessDesc');
-            const geminiResultDiv = document.getElementById('geminiResult');
             
             let currentSlide = 0;
             const totalSlides = slides.length;
@@ -402,60 +386,6 @@
                     prevSlide();
                 }
             });
-
-            // --- Gemini API Integration ---
-            async function callGemini() {
-                const businessDesc = businessDescInput.value;
-                if (!businessDesc.trim()) {
-                    geminiResultDiv.innerHTML = `<p class="text-red-400">الرجاء إدخال وصف لمشروعك أولاً.</p>`;
-                    return;
-                }
-
-                geminiResultDiv.innerHTML = '<div class="loader"></div>';
-                geminiBtn.disabled = true;
-                geminiBtn.innerText = 'جاري التحليل...';
-
-                const prompt = `بناءً على وصف العمل التالي، اقترح 5 صفات لشخصية العلامة التجارية وفقرة قصيرة تصف نبرة صوتها. يجب أن تكون الإجابة باللغة العربية ومنسقة بشكل جيد للعرض. وصف العمل هو: "${businessDesc}"`;
-                
-                const apiKey = ""; // API Key will be injected by the environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-                
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API Error: ${response.statusText}`);
-                    }
-
-                    const result = await response.json();
-                    
-                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        // Simple markdown-to-HTML conversion
-                        let htmlResult = text
-                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-                            .replace(/\*(.*?)\*/g, '<em>$1</em>')       // Italic
-                            .replace(/(\n)/g, '<br>');
-                        geminiResultDiv.innerHTML = `<div class="bg-gray-700 p-4 rounded-md">${htmlResult}</div>`;
-                    } else {
-                        throw new Error("لم يتم العثور على محتوى في استجابة الـ API.");
-                    }
-
-                } catch (error) {
-                    console.error("Gemini API call failed:", error);
-                    geminiResultDiv.innerHTML = `<p class="text-red-400">حدث خطأ أثناء الاتصال بالذكاء الاصطناعي. الرجاء المحاولة مرة أخرى.</p>`;
-                } finally {
-                    geminiBtn.disabled = false;
-                    geminiBtn.innerText = 'اقترح شخصية البراند';
-                }
-            }
-
-            geminiBtn.addEventListener('click', callGemini);
-            // --- End of Gemini API Integration ---
 
             // Initial setup
             slides.forEach((slide, index) => {
